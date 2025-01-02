@@ -62,3 +62,10 @@ export const updateData = async (id, data, token) => {
     headers: { Authorization: `Bearer ${token}` },
   });
 };
+
+export const fetchReviewedData = async (token) => {
+  const response = await axios.get(`${API_BASE_URL}/reviewed_data/`, {
+      headers: { Authorization: `Bearer ${token}` },
+  });
+  return response.data;
+};
