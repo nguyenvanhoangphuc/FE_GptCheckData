@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { uploadData, downloadData, fetchReviewedData } from "../services/api";
+import "../css/AdminPanel.css";
 
 function AdminPanel({ token, logout }) {
   const [file, setFile] = useState(null);
@@ -29,21 +30,37 @@ function AdminPanel({ token, logout }) {
   };
 
   return (
-    <div>
-      <h2>Admin Panel</h2>
-      <div>
-        <label>Upload File:</label>
-        <input type="file" onChange={(e) => setFile(e.target.files[0])} />
-        <button onClick={handleUpload}>Upload</button>
+    <div className="admin-container">
+      <div className="admin-header">
+        <h2>Admin Panel</h2>
+        <button onClick={logout} className="logout-button">
+          Logout
+        </button>
       </div>
-      <div>
-        <button onClick={handleDownload}>Download Processed Data</button>
+      <div className="admin-actions">
+        <div className="upload-section">
+          <label htmlFor="fileInput" className="upload-label">
+            Upload File:
+          </label>
+          <input
+            id="fileInput"
+            type="file"
+            onChange={(e) => setFile(e.target.files[0])}
+            className="upload-input"
+          />
+          <button onClick={handleUpload} className="action-button">
+            Upload
+          </button>
+        </div>
+        <button onClick={handleDownload} className="action-button">
+          Download Processed Data
+        </button>
       </div>
       <h3>Reviewed Data</h3>
-      { reviewedData.length === 0 ? (
-        <p>No reviewed data available.</p>
+      {reviewedData.length === 0 ? (
+        <p className="no-data">No reviewed data available.</p>
       ) : (
-        <table>
+        <table className="reviewed-data-table">
           <thead>
             <tr>
               <th>Prompt</th>
@@ -63,11 +80,7 @@ function AdminPanel({ token, logout }) {
             ))}
           </tbody>
         </table>
-      )
-      }
-      <div>
-        <button onClick={logout}>Logout</button>
-      </div>
+      )}
     </div>
   );
 }

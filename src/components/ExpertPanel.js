@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { fetchData, updateData } from "../services/api";
+import "../css/ExpertPanel.css"; // Import file CSS
 
 function ExpertPanel({ token, logout }) {
     const [data, setData] = useState([]);
@@ -30,31 +31,35 @@ function ExpertPanel({ token, logout }) {
     };
 
     return (
-        <div>
-            <h2>Expert Panel</h2>
+        <div className="expert-panel">
+            <h2 className="panel-title">Expert Panel</h2>
             {data.length === 0 ? (
-                <p>No data to review.</p>
+                <p className="no-data-message">No data to review.</p>
             ) : (
                 data.map((item) => (
-                    <div key={item.id} style={{ marginBottom: "20px", border: "1px solid #ccc", padding: "10px" }}>
-                        <p><strong>Prompt:</strong> {item.prompt}</p>
+                    <div key={item.id} className="data-item">
+                        <p className="data-prompt"><strong>Prompt:</strong> {item.prompt}</p>
                         <textarea
                             defaultValue={item.llm_response}
                             onChange={(e) => (item.llm_response = e.target.value)}
-                            style={{ width: "100%", height: "60px", marginBottom: "10px" }}
+                            className="data-textarea"
                         />
                         <textarea
                             defaultValue={item.llm_explaination}
                             onChange={(e) => (item.llm_explaination = e.target.value)}
-                            style={{ width: "100%", height: "60px", marginBottom: "10px" }}
+                            className="data-textarea"
                         />
-                        <button onClick={() => handleUpdate(item.id, item)}>Save</button>
+                        <button
+                            onClick={() => handleUpdate(item.id, item)}
+                            className="save-button"
+                        >
+                            Save
+                        </button>
                     </div>
                 ))
             )}
-            <div>
-                <button onClick={logout} style={{ marginTop: "20px" }}>Logout</button>
-            </div>
+            {/* Nút Logout cố định */}
+            <button onClick={logout} className="logout-button">Logout</button>
         </div>
     );
 }

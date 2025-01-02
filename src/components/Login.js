@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { login } from "../services/api";
+import "../css/Login.css";
 
 const Login = ({ setToken, setRole }) => {
   const [username, setUsername] = useState("");
@@ -32,28 +33,38 @@ const Login = ({ setToken, setRole }) => {
   };
 
   return (
-    <div>
-      <h1>Đăng nhập</h1>
-      {error && <p style={{ color: "red" }}>{error}</p>}
-      <form onSubmit={handleLogin}>
-        <div>
-          <label>Tên đăng nhập:</label>
-          <input
-            type="text"
-            value={username}
-            onChange={(e) => setUsername(e.target.value)}
-          />
-        </div>
-        <div>
-          <label>Mật khẩu:</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-        </div>
-        <button type="submit">Đăng nhập</button>
-      </form>
+    <div className="login-container">
+      <div className="login-card">
+        <h1 className="login-title">Đăng nhập</h1>
+        {error && <p className="error-message">{error}</p>}
+        <form onSubmit={handleLogin} className="login-form">
+          <div className="form-group">
+            <label htmlFor="username" className="form-label">Tên đăng nhập:</label>
+            <input
+              id="username"
+              type="text"
+              value={username}
+              onChange={(e) => setUsername(e.target.value)}
+              className="form-input"
+              placeholder="Nhập tên đăng nhập"
+              required
+            />
+          </div>
+          <div className="form-group">
+            <label htmlFor="password" className="form-label">Mật khẩu:</label>
+            <input
+              id="password"
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              className="form-input"
+              placeholder="Nhập mật khẩu"
+              required
+            />
+          </div>
+          <button type="submit" className="login-button">Đăng nhập</button>
+        </form>
+      </div>
     </div>
   );
 };

@@ -1,7 +1,7 @@
 /* ExpertPanel.css */
 .expert-panel {
-    max-width: 800px;
-    margin: 0 auto;
+    width: 90vw;
+    margin: 20px auto;
     padding: 20px;
     font-family: Arial, sans-serif;
     background-color: #f9f9f9;
@@ -38,7 +38,7 @@
 }
 
 .data-textarea {
-    width: 100%;
+    width: calc(100% - 22px);
     padding: 10px;
     font-size: 14px;
     margin-bottom: 10px;
@@ -63,12 +63,10 @@
     background-color: #45a049;
 }
 
-.logout-container {
-    text-align: center;
-    margin-top: 20px;
-}
-
 .logout-button {
+    position: fixed; /* Cố định vị trí */
+    top: 40px;       /* Khoảng cách từ trên xuống */
+    right: 5vw;     /* Khoảng cách từ phải qua */
     background-color: #f44336;
     color: white;
     padding: 10px 20px;
@@ -76,6 +74,7 @@
     border-radius: 5px;
     cursor: pointer;
     font-size: 14px;
+    z-index: 1000;    /* Đảm bảo nằm trên các phần tử khác */
     transition: background-color 0.3s;
 }
 

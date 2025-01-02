@@ -1,0 +1,117 @@
+/* AdminPanel.css */
+
+body {
+    margin: 0;
+    padding: 0;
+    font-family: "Arial", sans-serif;
+    background: linear-gradient(to bottom, #f0f4f8, #d9e4f5);
+    height: 100%;
+  }
+  
+  .admin-container {
+    width: 90vw !important;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .admin-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .admin-header h2 {
+    margin: 0;
+    color: #333333;
+  }
+  
+  .logout-button {
+    background-color: #f44336;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .logout-button:hover {
+    background-color: #d32f2f;
+  }
+  
+  .admin-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    gap: 20px;
+  }
+  
+  .upload-section {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .upload-label {
+    font-size: 14px;
+    color: #555555;
+  }
+  
+  .upload-input {
+    font-size: 14px;
+    padding: 5px;
+  }
+  
+  .action-button {
+    background-color: #4caf50;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .action-button:hover {
+    background-color: #388e3c;
+  }
+  
+  h3 {
+    color: #333333;
+    margin-bottom: 10px;
+  }
+  
+  .no-data {
+    text-align: center;
+    color: #666666;
+    font-size: 16px;
+    margin-top: 20px;
+  }
+  
+  .reviewed-data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .reviewed-data-table th,
+  .reviewed-data-table td {
+    border: 1px solid #dddddd;
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .reviewed-data-table th {
+    background-color: #f2f2f2;
+    color: #333333;
+  }
+  
+  .reviewed-data-table tbody tr:hover {
+    background-color: #f9f9f9;
+  }
+  
